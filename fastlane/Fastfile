@@ -37,7 +37,6 @@ platform :ios do
       key_id: "#{FASTLANE_KEY_ID}",
       issuer_id: "#{FASTLANE_ISSUER_ID}",
       key_content: "#{FASTLANE_KEY}",
-      is_key_content_base64: true
     )
 
     previous_build_number = latest_testflight_build_number(
@@ -136,7 +135,6 @@ platform :ios do
       key_id: "#{FASTLANE_KEY_ID}",
       issuer_id: "#{FASTLANE_ISSUER_ID}",
       key_content: "#{FASTLANE_KEY}",
-      is_key_content_base64: true
     )
     
     upload_to_testflight(
@@ -156,7 +154,6 @@ platform :ios do
       key_id: "#{FASTLANE_KEY_ID}",
       issuer_id: "#{FASTLANE_ISSUER_ID}",
       key_content: "#{FASTLANE_KEY}",
-      is_key_content_base64: true
     )
 
     def configure_bundle_id(name, identifier, capabilities)
@@ -205,7 +202,6 @@ platform :ios do
       key_id: "#{FASTLANE_KEY_ID}",
       issuer_id: "#{FASTLANE_ISSUER_ID}",
       key_content: "#{FASTLANE_KEY}",
-      is_key_content_base64: true
     )
     
     match(
@@ -231,7 +227,6 @@ platform :ios do
       key_id: "#{FASTLANE_KEY_ID}",
       issuer_id: "#{FASTLANE_ISSUER_ID}",
       key_content: "#{FASTLANE_KEY}",
-      is_key_content_base64: true
     )
 
     def find_bundle_id(identifier)
@@ -256,7 +251,6 @@ platform :ios do
       key_id: "#{FASTLANE_KEY_ID}",
       issuer_id: "#{FASTLANE_ISSUER_ID}",
       key_content: "#{FASTLANE_KEY}",
-      is_key_content_base64: true
     )
     
     match_nuke(
