@@ -66,36 +66,39 @@ extension XDripWatchComplication.EntryView {
                     .foregroundStyle(.teal)
                     .padding(0)
                     
-                    Text(Texts_WatchComplication.goTo)
-                        .font(.system(size: entry.widgetState.isSmallScreen() ? 10 : 14))
-                        .foregroundStyle(.colorPrimary)
-                    
-                    + Text(" \(ConstantsHomeView.applicationName)")
-                        .font(.system(size: entry.widgetState.isSmallScreen() ? 10 : 14)).bold()
-                        .foregroundStyle(.white)
-                    
-                    + Text(" -> ")
-                        .font(.system(size: entry.widgetState.isSmallScreen() ? 10 : 14))
-                        .foregroundStyle(.colorPrimary)
-                    
-                    + Text(Texts_WatchComplication.settings)
-                        .font(.system(size: entry.widgetState.isSmallScreen() ? 10 : 14)).bold()
-                        .foregroundStyle(.white)
-                    
-                    + Text(" -> ")
-                        .font(.system(size: entry.widgetState.isSmallScreen() ? 10 : 14))
-                        .foregroundStyle(.colorPrimary)
-                    
-                    + Text(Texts_WatchComplication.appleWatch + " ")
-                        .font(.system(size: entry.widgetState.isSmallScreen() ? 10 : 14)).bold()
-                        .foregroundStyle(.white)
-                    
-                    + Text(Texts_WatchComplication.toEnable)
-                        .font(.system(size: entry.widgetState.isSmallScreen() ? 10 : 14))
-                        .foregroundStyle(.colorPrimary)
+                    liveDataDisabledInstructionText
                 }
             }
         }
         .widgetBackground(backgroundView: Color.clear)
+    }
+    
+    // Split out to help Xcode 26's type-checker — the 7-part Text + chain
+    // exceeds the compiler's expression complexity limit.
+    @ViewBuilder
+    private var liveDataDisabledInstructionText: some View {
+        let fontSize: CGFloat = entry.widgetState.isSmallScreen() ? 10 : 14
+        let t1: Text = Text(Texts_WatchComplication.goTo)
+            .font(.system(size: fontSize))
+            .foregroundStyle(.colorPrimary)
+        let t2: Text = Text(" \(ConstantsHomeView.applicationName)")
+            .font(.system(size: fontSize)).bold()
+            .foregroundStyle(.white)
+        let t3: Text = Text(" -> ")
+            .font(.system(size: fontSize))
+            .foregroundStyle(.colorPrimary)
+        let t4: Text = Text(Texts_WatchComplication.settings)
+            .font(.system(size: fontSize)).bold()
+            .foregroundStyle(.white)
+        let t5: Text = Text(" -> ")
+            .font(.system(size: fontSize))
+            .foregroundStyle(.colorPrimary)
+        let t6: Text = Text(Texts_WatchComplication.appleWatch + " ")
+            .font(.system(size: fontSize)).bold()
+            .foregroundStyle(.white)
+        let t7: Text = Text(Texts_WatchComplication.toEnable)
+            .font(.system(size: fontSize))
+            .foregroundStyle(.colorPrimary)
+        t1 + t2 + t3 + t4 + t5 + t6 + t7
     }
 }
